@@ -1,22 +1,22 @@
 import styled from "styled-components";
+import gameBoard from "../../assets/gameBoard.png";
+import piece from "../../assets/piece.png";
 
 export const Wrapper = styled.div`
-  display: flex;
-  justify-content: center;
   position: relative;
-  animation-name: handleMove;
-  animation-fill-mode: both;
-
-  @keyframes handleMove {
-    from {
-      right: ${({ move }) => (move ? "100px" : "0px")};
-    }
-    to {
-      right: ${({ move }) => (move ? "100px" : "0px")};
-    }
-  }
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  width: 1000px;
+  height: 725px;
+  background-image: url(${gameBoard});
 `;
 export const Piece = styled.img`
+  width: 50px;
   height: 50px;
-  margin-top: 20px;
+  position: absolute;
+  top:20px;
+  right:200px;
+  transition: all 1s ease-in-out;
 `;
