@@ -1,15 +1,15 @@
 import React from "react";
-import { Wrapper, Title } from "./styles";
-import StyledLink from "../../components/StyledLink";
-import PaperImage from "../../components/PaperImage";
-
+import { Wrapper, ItemWrapper } from "./styles";
+import LinkMapping from "../../components/StyledLink/LinkMapping";
+import Logo from "../../components/Logo";
 
 const Homepage = () => {
   return (
     <Wrapper>
-      <Title>Activity</Title>
-      <StyledLink/>
-      <PaperImage/>
+      <ItemWrapper>
+        <Logo />
+        <LinkMapping />
+      </ItemWrapper>
     </Wrapper>
   );
 };
