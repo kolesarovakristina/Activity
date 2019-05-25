@@ -20,7 +20,7 @@ const LinkMapping = () => {
   return (
     <LinkWrapper>
       {link.map(({ title, to }) => (
-        <StyledLink to={to}>
+        <StyledLink key={title} to={to}>
           <Link title={title} to={to} />
         </StyledLink>
       ))}

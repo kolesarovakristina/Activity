@@ -3,13 +3,12 @@ import * as THREE from "three";
 import OBJLoader from "three-obj-loader-es6-module";
 import MTLLoader from "three-react-mtl-loader";
 import OrbitControls from "three-orbitcontrols";
+import { Player } from "./piece";
+import TWEEN from "@tweenjs/tween.js";
 
 let renderer;
 let camera;
 let scene;
-let pieceObject;
-var actualRow = 0;
-var targetPositionZ = -3;
 class Scene extends Component {
   componentDidMount() {
     this.setupScene();
@@ -31,6 +30,8 @@ class Scene extends Component {
     scene.add(camera);
     this.renderer = renderer;
 
+    const player = new Player(0, 0);
+
     let gameBoard = new MTLLoader();
     gameBoard.load("../../assets/gameBoard3D/gameBoard.mtl", materials => {
       materials.preload();
@@ -40,6 +41,10 @@ class Scene extends Component {
 
       gameBoardObj.load("/assets/gameBoard3D/gameBoard.obj", object => {
         scene.add(object);
+        object.scale.z = 0.85;
+        object.scale.x = 0.85;
+        object.position.x = 3.6;
+        object.position.z = -1.6;
       });
     });
 
@@ -52,13 +57,18 @@ class Scene extends Component {
 
       piece.load("/assets/gameBoard3D/WoodenLarry.obj", object => {
         scene.add(object);
-        pieceObject = object;
-        pieceObject.position.x = -4;
-        pieceObject.position.z = 3;
+        player.setModel(object);
       });
     });
     this.container.appendChild(this.renderer.domElement);
+    var axesHelper = new THREE.AxesHelper(50);
+    var size = 100;
+    var divisions = 100;
 
+    var gridHelper = new THREE.GridHelper(size, divisions);
+    gridHelper.position.y = 0.1;
+    scene.add(gridHelper);
+    scene.add(axesHelper);
     // LIGHTS;
     var directionalLight = new THREE.DirectionalLight(0xe6ffe6, 2.5);
     directionalLight.position.y = 20;
@@ -79,6 +89,9 @@ class Scene extends Component {
 
     window.addEventListener("resize", this.onWindowResize, false);
     this.onWindowResize();
+    setInterval(() => {
+      player.moveForward();
+    }, 2000);
   };
   onWindowResize = () => {
     const windowHalfX = window.innerWidth / 2;
@@ -87,27 +100,9 @@ class Scene extends Component {
     camera.updateProjectionMatrix();
     renderer.setSize(window.innerWidth, window.innerHeight);
   };
-  goRight = () => {
-    if (pieceObject && pieceObject.position.z >= targetPositionZ) {
-      pieceObject.position.z -= 0.1;
-    }
-  };
-  // goLeft = () => {
-  //   if (pieceObject && pieceObject.position.z >= targetPositionZ) {
-  //     pieceObject.position.z += 0.1;
-  //   }
-  // };
-  movePiece = () => {
-    // if (pieceObject === targetPositionZ) {
-    //   this.goLeft();
-    // } else {
-    //   this.goRight();
-    // }
-    this.goRight();
-  };
-  animate = () => {
+  animate = time => {
+    TWEEN.update(time);
     this.renderScene();
-    this.movePiece();
     this.frameId = window.requestAnimationFrame(this.animate);
   };
 
