@@ -7,8 +7,8 @@ const Card = ({ src, word }) => (
     <input type="checkbox" />
     <div class="card">
       <div class="front" style={{ display: "flex", flexDirection: "column" }}>
-        <img src={logo} style={{ width: "150px" }} />
-        <img src={src} style={{ width: "100px", margin: "auto" }} />
+        <img src={logo} style={{ width: "140px" }} />
+        <img src={src} style={{ width: "90px", margin: "auto" }} />
       </div>
       <div class="back">{word}</div>
     </div>

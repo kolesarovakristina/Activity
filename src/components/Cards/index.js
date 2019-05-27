@@ -1,5 +1,5 @@
 import React from "react";
-import Card from "./card";
+import Card from "../Card/card";
 import { Wrapper, CardWrapper } from "./styles";
 import one from "../../assets/one.png";
 import two from "../../assets/two.png";

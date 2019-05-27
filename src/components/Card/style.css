@@ -5,8 +5,8 @@ label {
     perspective: 1000px;
     -webkit-transform-style: preserve-3d;
     transform-style: preserve-3d;
-    width: 150px;
-    height: 200px;
+    width: 140px;;
+    height: 180px;;
     position: relative;
     display: block;
     left: 10%;

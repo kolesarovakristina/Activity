@@ -2,7 +2,6 @@ import React from "react";
 import { Wrapper, ItemWrapper } from "./styles";
 import LinkMapping from "../../components/StyledLink/LinkMapping";
 import Logo from "../../components/Logo";
-import Card from "../../components/Card";
 
 const Homepage = () => {
   return (
@@ -11,7 +10,6 @@ const Homepage = () => {
         <Logo />
         <LinkMapping />
       </ItemWrapper>
-      <Card />
     </Wrapper>
   );
 };

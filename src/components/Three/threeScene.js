@@ -5,6 +5,7 @@ import MTLLoader from "three-react-mtl-loader";
 import OrbitControls from "three-orbitcontrols";
 import { Player } from "./piece";
 import TWEEN from "@tweenjs/tween.js";
+import Cards from "../Cards";
 
 let renderer;
 let camera;
@@ -114,17 +115,20 @@ class Scene extends Component {
     const width = "100%";
     const height = "100%";
     return (
-      <div
-        ref={container => {
-          this.container = container;
-        }}
-        style={{
-          width: width,
-          height: height,
-          position: "absolute",
-          overflow: "hidden"
-        }}
-      />
+      <div>
+        <div
+          ref={container => {
+            this.container = container;
+          }}
+          style={{
+            width: width,
+            height: height,
+            position: "absolute",
+            overflow: "hidden"
+          }}
+        />
+        <Cards />
+      </div>
     );
   }
 }
