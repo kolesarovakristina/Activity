@@ -24,7 +24,7 @@ label {
     -webkit-transition: all 600ms;
     transition: all 600ms;
     z-index: 20;
-    border:4px solid #ff6933;
+    border:2px solid #ff6933;
 }
 
     .card div {

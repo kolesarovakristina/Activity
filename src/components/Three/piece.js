@@ -6,6 +6,7 @@ export class Player {
     this.actualPosition = 1;
     this.actualRow = 0;
     this.COLUMNSCOUNT = 4;
+    this.finalPosition = 32;
     this.tween = new TWEEN.Tween({ x: initialX, z: initialZ });
     this.tween.onUpdate(o => {
       if (this.model) {
@@ -21,17 +22,18 @@ export class Player {
     return this.tween.update();
   }
   moveForward() {
+    if (this.actualPosition === this.finalPosition) {
+      return;
+    }
     if (this.actualPosition % this.COLUMNSCOUNT === 0) {
       this.goDown(1);
       this.actualPosition += 1;
-      console.log("down");
       return;
     }
 
     if (Math.ceil(this.actualPosition / this.COLUMNSCOUNT) % 2 === 0) {
       this.goToLeft(1);
       this.actualPosition += 1;
-      console.log("left");
     }
     if (Math.ceil(this.actualPosition / this.COLUMNSCOUNT) % 2 === 1) {
       this.goToRight(1);
@@ -44,7 +46,6 @@ export class Player {
       .to({ z: this.z }, 1000)
       .easing(TWEEN.Easing.Quadratic.Out)
       .start();
-    console.log("goleft", z);
   }
   goToRight(z) {
     this.z -= z;

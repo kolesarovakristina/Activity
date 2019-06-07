@@ -5,11 +5,11 @@ import { LinkWrapper, StyledLink } from "./styles";
 const link = [
   {
     title: "New Game",
-    to: "/gameboard"
+    to: "/gameBoard"
   },
   {
     title: "Settings",
-    to: "/settings"
+    to: "/playerSetting"
   },
   {
     title: "Rules",

@@ -45,7 +45,7 @@ class Scene extends Component {
         object.scale.z = 0.85;
         object.scale.x = 0.85;
         object.position.x = 3.6;
-        object.position.z = -1.6;
+        object.position.z = -0.5;
       });
     });
 
@@ -62,14 +62,14 @@ class Scene extends Component {
       });
     });
     this.container.appendChild(this.renderer.domElement);
-    var axesHelper = new THREE.AxesHelper(50);
-    var size = 100;
-    var divisions = 100;
+    // var axesHelper = new THREE.AxesHelper(50);
+    // var size = 100;
+    // var divisions = 100;
 
-    var gridHelper = new THREE.GridHelper(size, divisions);
-    gridHelper.position.y = 0.1;
-    scene.add(gridHelper);
-    scene.add(axesHelper);
+    // var gridHelper = new THREE.GridHelper(size, divisions);
+    // gridHelper.position.y = 0.1;
+    // scene.add(gridHelper);
+    // scene.add(axesHelper);
     // LIGHTS;
     var directionalLight = new THREE.DirectionalLight(0xe6ffe6, 2.5);
     directionalLight.position.y = 20;
@@ -80,8 +80,7 @@ class Scene extends Component {
 
     // controls
     const controls = new OrbitControls(camera, renderer.domElement);
-    //controls.addEventListener( 'change', render ); // call this only in static scenes (i.e., if there is no animation loop)
-    controls.enableDamping = true; // an animation loop is required when either damping or auto-rotation are enabled
+    controls.enableDamping = true;
     controls.dampingFactor = 0.25;
     controls.screenSpacePanning = false;
     controls.minDistance = 10;
@@ -92,7 +91,7 @@ class Scene extends Component {
     this.onWindowResize();
     setInterval(() => {
       player.moveForward();
-    }, 2000);
+    }, 1000);
   };
   onWindowResize = () => {
     const windowHalfX = window.innerWidth / 2;
