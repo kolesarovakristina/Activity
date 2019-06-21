@@ -5,22 +5,32 @@ import one from "../../assets/one.png";
 import two from "../../assets/two.png";
 import three from "../../assets/three.png";
 
-const words = { word: "love" };
-class CardsContainer extends React.Component {
+const points = [
+  { point: 1, src: one },
+  { point: 2, src: two },
+  { point: 3, src: three }
+];
+
+class Cards extends React.Component {
   render() {
+    const { getCardAction, word, gameId } = this.props;
     return (
       <Wrapper>
-        <CardWrapper>
-          <Card src={one} word={words.word} />
-        </CardWrapper>
-        <CardWrapper>
-          <Card src={two} word={words.word} />
-        </CardWrapper>
-        <CardWrapper>
-          <Card src={three} word={words.word} />
-        </CardWrapper>
+        {points.map(({ point, src }) => (
+          <CardWrapper key={point}>
+            <Card
+              src={src}
+              point={point}
+              onClick={() => {
+                getCardAction(point, gameId);
+              }}
+              word={word}
+            />
+          </CardWrapper>
+        ))}
       </Wrapper>
     );
   }
 }
-export default CardsContainer;
+
+export default Cards;

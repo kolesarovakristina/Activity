@@ -1,23 +1,25 @@
 var TWEEN = require("@tweenjs/tween.js");
 export class Player {
-  constructor(initialX, initialZ) {
+  constructor(initialX, initialZ, model) {
     this.x = initialX;
     this.z = initialZ;
+    this.model = model;
     this.actualPosition = 1;
     this.actualRow = 0;
     this.COLUMNSCOUNT = 4;
     this.finalPosition = 32;
+    model.position.z = initialZ;
+    model.position.x = initialX;
     this.tween = new TWEEN.Tween({ x: initialX, z: initialZ });
     this.tween.onUpdate(o => {
+      console.log("daco");
       if (this.model) {
         this.model.position.x = o.x;
         this.model.position.z = o.z;
       }
     });
   }
-  setModel(model) {
-    this.model = model;
-  }
+
   getTweenUpdate() {
     return this.tween.update();
   }

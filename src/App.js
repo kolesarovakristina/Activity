@@ -4,9 +4,9 @@ import { Switch, Route } from "react-router-dom";
 import Loadable from "@7rulnik/react-loadable";
 import Loading from "./components/LoadingPage";
 import { library } from "@fortawesome/fontawesome-svg-core";
-import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { faPlus, faMinus } from "@fortawesome/free-solid-svg-icons";
 
-library.add(faPlus);
+library.add(faPlus, faMinus);
 
 const LoadableComponent = Loadable({
   loader: () => import("./containers/Dashboard"),

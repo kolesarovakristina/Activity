@@ -4,7 +4,7 @@ export const StyledInput = styled.input`
   transition: all 0.2s linear;
   width: 100%;
   display: inline-block;
-  height: 40px;
+  height: 35px;
   font-size: 12px;
   outline: none;
   display: block;
@@ -15,6 +15,7 @@ export const StyledInput = styled.input`
   border-top: none;
   border-right: none;
   border-left: none;
+  text-decoration: none;
   &:focus {
     border-bottom: 2.5px solid rgb(255, 87, 26);
   }
@@ -22,34 +23,21 @@ export const StyledInput = styled.input`
 export const Wrapper = styled.div`
   width: 100%;
   display: flex;
+  padding: 10px;
+  justify-content: space-around;
 `;
-export const StyledInputWrapper = styled.div`
-  width: 50%;
+export const ColorWrapper = styled.span`
+  width: 40%;
   display: flex;
-  flex-direction: column;
-`;
-export const ColorWrapper = styled.div`
-  width: 50%;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  padding: 20px;
+  flex-direction: row;
+  padding-top: 7px;
 `;
 export const InputWrapper = styled.div`
-  height: 50px;
-  width: 100%;
-  display: flex;
-  padding: 10px;
+  width: 40%;
 `;
 export const IconWrapper = styled.span`
-  line-height: 25px;
-  text-align: center;
-  width: 30px;
-  height: 25px;
-  background: #fffce6;
-  border: 1.5px solid rgb(255, 87, 26);
-  margin-top: 10px;
-  margin-left: 10px;
+  display: flex;
+  width: 5%;
 `;
 export const ButtonWrapper = styled.div`
   width: 100%;
@@ -72,14 +60,15 @@ export const Button = styled.button`
   border-radius: 5px;
   cursor: pointer;
   &:hover {
-    background: none;
-    border: 1.5px solid rgb(255, 87, 26);
-    color: rgb(255, 87, 26);
+    background: rgb(255, 87, 26);
+    color: #fffce6;
   }
 `;
-// export const Text = styled.div`
-//   font-size: 20px;
-//   text-transform: uppercase;
-//   color: rgb(255, 87, 26);
-//   text-align: center;
-// `;
+export const ErrorWrapper = styled.div`
+  color: red;
+  font-size: 15px;
+  display: flex;
+  justify-content: center;
+  font-weight: bold;
+  padding-bottom: 5px;
+`;

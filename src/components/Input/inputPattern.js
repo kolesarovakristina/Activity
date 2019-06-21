@@ -8,7 +8,8 @@ const Input = ({
   placeholder,
   minLength,
   maxLength,
-  name
+  name,
+  pattern
 }) => (
   <StyledInput
     type={type}
@@ -17,9 +18,9 @@ const Input = ({
     placeholder={placeholder}
     name={name}
     required
-    autocomplete="off"
     minLength={minLength}
     maxLength={maxLength}
+    pattern={pattern}
   />
 );
 export default Input;

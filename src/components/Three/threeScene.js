@@ -5,7 +5,8 @@ import MTLLoader from "three-react-mtl-loader";
 import OrbitControls from "three-orbitcontrols";
 import { Player } from "./piece";
 import TWEEN from "@tweenjs/tween.js";
-import Cards from "../Cards";
+import Cards from "../../containers/CardsContainer";
+var STLLoader = require("three-stl-loader")(THREE);
 
 let renderer;
 let camera;
@@ -13,6 +14,7 @@ let scene;
 class Scene extends Component {
   componentDidMount() {
     this.setupScene();
+    console.log("player", this.props.players);
   }
 
   setupScene = () => {
@@ -31,8 +33,6 @@ class Scene extends Component {
     scene.add(camera);
     this.renderer = renderer;
 
-    const player = new Player(0, 0);
-
     let gameBoard = new MTLLoader();
     gameBoard.load("../../assets/gameBoard3D/gameBoard.mtl", materials => {
       materials.preload();
@@ -48,19 +48,24 @@ class Scene extends Component {
         object.position.z = -0.5;
       });
     });
+    this.props.players.forEach((player, i) => {
+      const pieceLoader = new STLLoader();
+      pieceLoader.load("/assets/gameBoard3D/piece.stl", object => {
+        var material = new THREE.MeshPhongMaterial({
+          color: 0xdd0000
+        });
+        var mesh = new THREE.Mesh(object, material);
+        mesh.rotation.x = 4.8;
 
-    let pieceloader = new MTLLoader();
-    pieceloader.load("../../assets/gameBoard3D/WoodenLarry.mtl", materials => {
-      materials.preload();
-
-      let piece = new OBJLoader();
-      piece.setMaterials(materials);
-
-      piece.load("/assets/gameBoard3D/WoodenLarry.obj", object => {
-        scene.add(object);
-        player.setModel(object);
+        scene.add(mesh);
+        // object.position.z = i * 1;
+        const piece = new Player(0, i * 0.2, mesh);
+        setInterval(() => {
+          piece.moveForward();
+        }, 1000);
       });
     });
+
     this.container.appendChild(this.renderer.domElement);
     // var axesHelper = new THREE.AxesHelper(50);
     // var size = 100;
@@ -89,10 +94,9 @@ class Scene extends Component {
 
     window.addEventListener("resize", this.onWindowResize, false);
     this.onWindowResize();
-    setInterval(() => {
-      player.moveForward();
-    }, 1000);
   };
+  addPlayersToScene = () => {};
+
   onWindowResize = () => {
     const windowHalfX = window.innerWidth / 2;
     const windowHalfY = window.innerHeight / 2;

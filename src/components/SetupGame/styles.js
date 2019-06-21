@@ -1,8 +1,11 @@
 import styled from "styled-components";
 
 const ContentWrapper = styled.div`
-  width: 40%;
-  height: 350px;
+  @media (max-width: 840px) {
+    width: 90%;
+  }
+  width: 50%;
+  height: 360px;
   background-color: #fffce6;
   margin: auto;
   border: 1px solid rgb(255, 87, 26);
