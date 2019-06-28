@@ -52,14 +52,14 @@ class Scene extends Component {
       const pieceLoader = new STLLoader();
       pieceLoader.load("/assets/gameBoard3D/piece.stl", object => {
         var material = new THREE.MeshPhongMaterial({
-          color: 0xdd0000
+          color: player.color
         });
         var mesh = new THREE.Mesh(object, material);
-        mesh.rotation.x = 4.8;
+        mesh.rotation.x = 4.78;
 
         scene.add(mesh);
         // object.position.z = i * 1;
-        const piece = new Player(0, i * 0.2, mesh);
+        const piece = new Player(0, i * 0.3, mesh);
         setInterval(() => {
           piece.moveForward();
         }, 1000);
@@ -95,7 +95,6 @@ class Scene extends Component {
     window.addEventListener("resize", this.onWindowResize, false);
     this.onWindowResize();
   };
-  addPlayersToScene = () => {};
 
   onWindowResize = () => {
     const windowHalfX = window.innerWidth / 2;

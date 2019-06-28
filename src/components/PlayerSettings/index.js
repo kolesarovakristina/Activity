@@ -15,15 +15,15 @@ import Input from "../Input/inputPattern";
 import Color from "../Colors";
 
 const colors = [
-  { id: "blue", value: "rgb(0, 0, 255)" },
-  { id: "yellow", value: "rgb(255, 255, 102)" },
-  { id: "green", value: "rgb(0, 230, 0)" },
-  { id: "red", value: "rgb(255, 0, 0)" }
+  { id: "blue", value: "rgb(0, 0, 255)", hexColor: "#0000FF" },
+  { id: "yellow", value: "rgb(255, 255, 102)", hexColor: "#FFFF00" },
+  { id: "green", value: "rgb(0, 230, 0)", hexColor: "#008000" },
+  { id: "red", value: "rgb(255, 0, 0)", hexColor: "#FF0000" }
 ];
 
 class PlayerSettings extends React.Component {
   state = {
-    users: [{ name: "", color: colors[0].id }],
+    users: [{ name: "", color: colors[0].hexColor }],
     count: 1,
     error: null,
     isLoading: false
@@ -106,12 +106,13 @@ class PlayerSettings extends React.Component {
         )}
 
         <ColorWrapper>
-          {colors.map(({ id, value }) => (
+          {colors.map(({ id, value, hexColor }) => (
             <Color
               key={id}
               id={id}
               value={value}
-              onClick={() => this.setColor(i, id)}
+              hexColor={hexColor}
+              onClick={() => this.setColor(i, hexColor)}
             />
           ))}
         </ColorWrapper>
@@ -163,9 +164,6 @@ class PlayerSettings extends React.Component {
   changeColor = () => {};
   render() {
     const { count, error } = this.state;
-    if (this.props.loading) {
-      return <div>Loading</div>;
-    }
     return (
       <form onSubmit={this.handleSubmit}>
         {this.createUI()}
