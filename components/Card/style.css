@@ -1,0 +1,100 @@
+
+
+label {
+    -webkit-perspective: 1000px;
+    perspective: 1000px;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    width: 140px;;
+    height: 180px;;
+    position: relative;
+    display: block;
+    left: 10%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+}
+
+.card {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-transition: all 600ms;
+    transition: all 600ms;
+    z-index: 20;
+    border:2px solid #ff6933;
+}
+
+    .card div {
+        position:absolute;
+        /* height: 100%;
+        width: 100%; */
+        background-image: url("../../assets/background.jpg");
+        text-align: center;
+        
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        border-radius: 2px;
+    }
+    .backContent{
+        width:100%; 
+        display:flex;
+        justify-content: center;
+    }
+    .button{
+        width:100%;
+        margin-top:105%;
+        height:35px;
+        border-top:2px solid #ff6933;
+        border-bottom:none;
+        border-right:none;
+        border-left:none;
+        background:#ff6933;
+        color: #fffce6;
+        font-size:15px;
+        outline: none;
+       
+    }
+    button:hover {
+        background: #ffddb3;
+        color: #ff6933;
+    }
+    .word{
+    padding-top:60px;
+    color: #ff6933;
+    font-size:20px;
+    text-transform:uppercase;
+    font-weight: bold;
+    font-family: Lato;
+    letter-spacing: 2px;
+}
+    .card .back {
+        -webkit-transform: rotateX(180deg);
+        transform: rotateX(180deg);
+        background-image: url("../../assets/background.jpg");
+        height: 100%;
+        width: 100%;
+    }
+
+label:hover .card {
+    -webkit-transform: rotateX(20deg);
+    transform: rotateX(20deg);
+    box-shadow: 0 20px 20px rgba(50,50,50,.2);
+}
+
+input {
+    display: none;
+}
+
+:checked + .card {
+    transform: rotateX(180deg);
+    -webkit-transform: rotateX(180deg);
+}
+
+label:hover :checked + .card {
+    transform: rotateX(160deg);
+    -webkit-transform: rotateX(160deg);
+    box-shadow: 0 20px 20px rgba(255,255,255,.2);
+}
