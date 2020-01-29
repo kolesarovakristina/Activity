@@ -1,6 +1,6 @@
 import React from "react";
-import { Wrapper, ItemWrapper } from "../../containers/Homepage/styles";
-import ContentWrapper from "./styles";
+import { Wrapper } from "../../containers/Homepage/styles";
+import { ContentWrapper, Title } from "./styles";
 import Logo from "../Logo";
 import PlayerSettingsContainer from "../../containers/PlayerSettingsContainer";
 
@@ -8,12 +8,11 @@ class SetupGame extends React.Component {
   render() {
     return (
       <Wrapper>
-        <ItemWrapper>
-          <Logo />
-          <ContentWrapper>
-            <PlayerSettingsContainer />
-          </ContentWrapper>
-        </ItemWrapper>
+        <Logo />
+        <ContentWrapper>
+          <Title>Select Team name and Color</Title>
+          <PlayerSettingsContainer />
+        </ContentWrapper>
       </Wrapper>
     );
   }

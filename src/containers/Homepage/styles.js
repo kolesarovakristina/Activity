@@ -8,8 +8,16 @@ export const Wrapper = styled.div`
   background-repeat: no-repeat;
   width: 100%;
   height: 100%;
-  position: absolute;
+  position: fixed;
 `;
-export const ItemWrapper = styled.div`
-  padding-top: 5%;
+export const IconsWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  width: 100%;
+`;
+export const Image = styled.img`
+  width: 35%;
+  @media (max-width: 840px) {
+    width: 70%;
+  }
 `;

@@ -5,36 +5,27 @@ export const ItemWrapper = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
-  padding: 15px;
+  padding: 12px;
 `;
-export const Item = styled.button`
-  background: #fffce6;
-  transition: all 0.2s linear;
-  width: 100%;
-  height: 50px;
-  font-size: 14px;
+export const Item = styled.div`
+  height: 40px;
+  font-size: 30px;
   color: rgb(255, 87, 26);
   letter-spacing: 1px;
   font-weight: bold;
-  letter-spacing: 1px;
-  border: 1.5px solid rgb(255, 87, 26);
-  outline: none;
-  display: block;
-  border-radius: 5px;
   cursor: pointer;
+  text-shadow: 2px 2px rgba(0, 0, 0, 0.3);
   &:hover {
-    background: none;
-    border: 1.5px solid rgb(255, 87, 26);
-    color: rgb(255, 87, 26);
+    color: #fffce6;
   }
 `;
 export const StyledLink = styled(Link)`
   text-decoration: none;
 `;
 export const LinkWrapper = styled.div`
-  width: 40%;
+  width: 30%;
   margin: auto;
   @media (max-width: 840px) {
-    width: 90%;
+    width: 100%;
   }
 `;

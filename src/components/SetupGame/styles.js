@@ -1,13 +1,22 @@
 import styled from "styled-components";
 
-const ContentWrapper = styled.div`
+export const ContentWrapper = styled.div`
   @media (max-width: 840px) {
     width: 90%;
   }
   width: 50%;
-  height: 360px;
-  background-color: #fffce6;
+  background-color: #f2ffcc;
   margin: auto;
-  border: 1px solid rgb(255, 87, 26);
+  box-shadow: 0px 0px 5px 0.5px grey;
+  background-color: none;
 `;
-export default ContentWrapper;
+export const Title = styled.div`
+  display: flex;
+  justify-content: center;
+  padding: 20px 0px 20px 0px;
+  font-size: 20px;
+  color: rgb(255, 87, 26);
+  letter-spacing: 1px;
+  font-weight: bold;
+  width: 100%;
+`;

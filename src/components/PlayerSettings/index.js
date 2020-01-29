@@ -26,7 +26,8 @@ class PlayerSettings extends React.Component {
     users: [{ name: "", color: colors[0].hexColor }],
     count: 1,
     error: null,
-    isLoading: false
+    isLoading: false,
+    clicked: false
   };
   componentDidUpdate(prevProps, prevState, snapshot) {
     if (this.props.status !== prevProps.status) {
@@ -68,7 +69,6 @@ class PlayerSettings extends React.Component {
       count: this.state.count + 1
     });
   };
-
   decrementCounter = () => {
     this.setState({
       count: this.state.count - 1
@@ -80,7 +80,7 @@ class PlayerSettings extends React.Component {
       <Wrapper key={i}>
         <InputWrapper>
           <Input
-            placeholder="Team Name"
+            placeholder="Team name"
             name="name"
             value={item.name}
             onChange={this.handleChange.bind(this, i)}
@@ -113,6 +113,7 @@ class PlayerSettings extends React.Component {
               value={value}
               hexColor={hexColor}
               onClick={() => this.setColor(i, hexColor)}
+              clicked={this.state.clicked}
             />
           ))}
         </ColorWrapper>
@@ -158,7 +159,8 @@ class PlayerSettings extends React.Component {
     const users = [...this.state.users];
     users[pos].color = colorId;
     this.setState({
-      users
+      users,
+      clicked: true
     });
   };
   changeColor = () => {};
