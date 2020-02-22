@@ -23,9 +23,9 @@ function createGame(users) {
   return dispatch => {
     dispatch(createGameInProgress());
     axios
-      .post(`/api/v1/activity/boardsize/${boardSize}`, users)
+      .post(`/api/v1/activity/${boardSize}`, users)
       .then(({ data }) => {
-        dispatch(createGameSuccess(data));
+          dispatch(createGameSuccess(data));
       })
       .catch(err => {
         dispatch(createGameFailed(err));

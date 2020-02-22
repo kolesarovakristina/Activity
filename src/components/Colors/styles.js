@@ -7,7 +7,6 @@ const Color = styled.div`
   cursor: pointer;
   box-shadow: 0px 0px 5px 0.5px rgba(0, 0, 0, 0.3);
   background-color: ${props => props.value};
-  border: ${props => (props.clicked ? "1px solid black" : "none")};
   &:hover {
     box-shadow: 0px 0px 5px 3px rgba(0, 0, 0, 0.3);
   }

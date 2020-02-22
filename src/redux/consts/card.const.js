@@ -1,4 +1,5 @@
-const WordConst = {
-  FETCH_CARD_WORD_SUCCESS: "FETCH_CARD_WORD_SUCCESS"
+const CardConst = {
+  FETCH_CARD_WORD_SUCCESS: "FETCH_CARD_WORD_SUCCESS",
+  CLOSE_CARD:"CLOSE_CARD"
 };
-export default WordConst;
+export default CardConst;

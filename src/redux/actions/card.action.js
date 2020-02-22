@@ -7,12 +7,17 @@ function getCardSuccess(data) {
     data
   };
 }
-
+function closeCard() {
+  return {
+    type: CardConst.CLOSE_CARD,
+  };
+}
 function getCard(point, gameId) {
   return (dispatch, getState) => {
-    axios(`/api/v1/activity/${gameId}/card/point/${point}`)
+    axios(`/api/v1/activity/card/point/${point}/gameId/${gameId}`)
       .then(({ data }) => {
         dispatch(getCardSuccess(data));
+        console.log(point)
       })
       .catch(err => {
         console.log("error", err);
@@ -21,7 +26,8 @@ function getCard(point, gameId) {
 }
 
 const CardAction = {
-  getCard
+  getCard,
+  closeCard
 };
 
 export default CardAction;

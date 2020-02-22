@@ -1,27 +1,25 @@
 import CreateGameConst from "../consts/createGame.const";
 
 const initialState = {
-  playersData: {
-    board: {
-      players: [
-        {
-          color: "red",
-          name: "jozko"
-        },
-        {
-          color: "yellow",
-          name: "matko"
-        }
-      ]
-    }
-  },
-  status: null
+  status: null,
+  gameId: 0,
+  players: [
+    {
+      name: "Jozko", color: "#FF0000"
+    },
+    { name: "Matko", color: "#008000" }
+  ]
 };
 
 function createGameReducer(state = initialState, action = {}) {
   switch (action.type) {
     case CreateGameConst.CREATE_GAME_SUCCESS:
-      return { ...state, playersData: action.data, status: "success" };
+      return {
+        ...state,
+        gameId: action.data.board.id,
+        players: action.data.board.players,
+        status: "success"
+      };
     case CreateGameConst.CREATE_GAME_IN_PROGRESS:
       return { ...state, status: "loading" };
     case CreateGameConst.CREATE_GAME_FAILED:

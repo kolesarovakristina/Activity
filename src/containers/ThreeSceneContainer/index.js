@@ -2,7 +2,7 @@ import { connect } from "react-redux";
 import ThreeScene from "../../components/Three/threeScene";
 
 const mapStateToProps = state => ({
-  players: state.createGameReducer.playersData.board.players
+  players: state.createGameReducer.players
 });
 const mapDispatchToProps = dispatch => ({});
 

@@ -1,14 +1,21 @@
 import { connect } from "react-redux";
 import CardAction from "../../redux/actions/card.action";
+import TimerAction from "../../redux/actions/timer.action";
 import Cards from "../../components/Cards";
 
 const mapStateToProps = state => ({
-  gameId: state.createGameReducer.playersData.board.id,
-  word: state.cardReducer.word
+  gameId: state.createGameReducer.gameId,
+  word: state.cardReducer.word,
 });
 const mapDispatchToProps = dispatch => ({
   getCardAction: (point, gameId) => {
     dispatch(CardAction.getCard(point, gameId));
+  },
+  closeCardAction:()=>{
+    dispatch(CardAction.closeCard())
+  },
+  startTimeAction: (gameId) => {
+    dispatch(TimerAction.startTime(gameId));
   }
 });
 

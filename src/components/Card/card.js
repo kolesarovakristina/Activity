@@ -4,12 +4,13 @@ import logo from "../../assets/logo.png";
 
 class Card extends React.Component {
   render() {
-    const { src, word, onClick } = this.props;
+    const { src, word, onOpen,onClose,onStart } = this.props;
     return (
-      <label onClick={onClick}>
+      <label>
         <input type="checkbox" />
         <div className="card">
           <div
+          onClick={onOpen}
             className="front"
             style={{ display: "flex", flexDirection: "column" }}
           >
@@ -22,8 +23,8 @@ class Card extends React.Component {
           </div>
           <div className="back">
             <div className="backContent">
-              <div className="word">{word}</div>
-              <button className="button">start</button>
+              <div className="word" onClick={onClose}>{word}</div>
+              <button className="button" onClick={onStart}>start</button>
             </div>
           </div>
         </div>

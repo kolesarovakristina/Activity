@@ -13,7 +13,7 @@ const points = [
 
 class Cards extends React.Component {
   render() {
-    const { getCardAction, word, gameId } = this.props;
+    const { getCardAction,closeCardAction,startTimeAction, word, gameId } = this.props;
     return (
       <Wrapper>
         {points.map(({ point, src }) => (
@@ -21,8 +21,14 @@ class Cards extends React.Component {
             <Card
               src={src}
               point={point}
-              onClick={() => {
+              onOpen={() => {
                 getCardAction(point, gameId);
+              }}
+              onClose={()=>{
+                closeCardAction()
+              }}
+              onStart={()=>{
+                startTimeAction(gameId)
               }}
               word={word}
             />
