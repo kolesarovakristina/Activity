@@ -28,25 +28,7 @@ export class Player {
     return this.model;
   }
   
-  // moveForward() {
-  //   if (this.actualPosition === this.finalPosition) {
-  //     return;
-  //   }
-  //   if (this.actualPosition % this.COLUMNSCOUNT === 0) {
-  //     // this.goDown(1);
-     
-  //     return {type: 'action..', data: {actualPosition: actualPosition+1, x, playerId: 12}};
-  //   }
-
-  //   if (Math.ceil(this.actualPosition / this.COLUMNSCOUNT) % 2 === 0) {
-  //     this.goToLeft(1);
-  //     this.actualPosition += 1;
-  //   }
-  //   if (Math.ceil(this.actualPosition / this.COLUMNSCOUNT) % 2 === 1) {
-  //     this.goToRight(1);
-  //     this.actualPosition += 1;
-  //   }
-  // }
+ 
   // goToLeft(z) {
   //   this.z += z;
   //   this.tween

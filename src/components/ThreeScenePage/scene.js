@@ -66,11 +66,12 @@ class Scene extends Component {
         });
         var mesh = new THREE.Mesh(object, material);
         mesh.rotation.x = 4.78;
-        playersPiecesModel.push(
-          {mesh}
-        );
+        // playersPiecesModel.push(
+        //   {mesh}
+        // );
+        scene.add(mesh)
         const piece = new Player(0, i * 0.3, mesh);
-        return {...player, piece};
+        // return {...player, piece};
       });
     });
 

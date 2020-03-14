@@ -2,9 +2,9 @@ import styled from "styled-components";
 
 export const ContentWrapper = styled.div`
   @media (max-width: 840px) {
-    width: 90%;
+    width: 100%;
   }
-  width: 50%;
+  width: 70%;
   background-color: #f2ffcc;
   margin: auto;
   box-shadow: 0px 0px 5px 0.5px grey;

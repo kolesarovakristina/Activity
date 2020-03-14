@@ -1,16 +1,24 @@
 import CardConst from "../consts/card.const";
 
 const initialState = {
-  data:{},
-  open:false
+  word: null,
+  coordinate: {
+    x:0
+  },
+  open: false
 };
 
 function cardReducer(state = initialState, action = {}) {
   switch (action.type) {
-    case CardConst.FETCH_CARD_WORD_SUCCESS:
-      return action.data;
-      case CardConst.CLOSE_CARD:
-        return {data:action.data, open:false};
+    case CardConst.OPEN_CARD:
+      return {
+        ...state,
+        word: action.data.word,
+        coordinate: action.data.coordinate.x,
+        open: true
+      };
+    case CardConst.CLOSE_CARD:
+      return { ...state, open: false };
     default:
       return state;
   }

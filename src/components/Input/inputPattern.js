@@ -9,7 +9,8 @@ const Input = ({
   minLength,
   maxLength,
   name,
-  pattern
+  pattern,
+  textColor
 }) => (
   <StyledInput
     type={type}
@@ -21,6 +22,7 @@ const Input = ({
     minLength={minLength}
     maxLength={maxLength}
     pattern={pattern}
+    textColor={textColor}
   />
 );
 export default Input;

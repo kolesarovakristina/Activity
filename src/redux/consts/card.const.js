@@ -1,5 +1,5 @@
 const CardConst = {
-  FETCH_CARD_WORD_SUCCESS: "FETCH_CARD_WORD_SUCCESS",
+  OPEN_CARD: "OPEN_CARD",
   CLOSE_CARD:"CLOSE_CARD"
 };
 export default CardConst;

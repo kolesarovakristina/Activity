@@ -4,11 +4,11 @@ import { LinkWrapper, StyledLink } from "./styles";
 
 const link = [
   {
-    title: "NEW GAME",
+    title: "ZAČAŤ HRU",
     to: "/setupGame"
   },
   {
-    title: "RULES",
+    title: "PRAVIDLÁ HRY",
     to: "/rules"
   }
 ];

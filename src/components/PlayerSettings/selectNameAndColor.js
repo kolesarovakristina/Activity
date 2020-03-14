@@ -12,7 +12,7 @@ import {
   ErrorWrapper
 } from "../Input/styles";
 import Input from "../Input/inputPattern";
-import Color from "../Colors";
+import Color from "./colors";
 
 const colors = [
   { id: "blue", value: "rgb(0, 0, 255)", hexColor: "#0000FF" },
@@ -21,13 +21,12 @@ const colors = [
   { id: "red", value: "rgb(255, 0, 0)", hexColor: "#FF0000" }
 ];
 
-class PlayerSettings extends React.Component {
+class SelectColorAndName extends React.Component {
   state = {
     users: [{ name: "", color: colors[0].hexColor }],
     count: 1,
     error: null,
     isLoading: false,
-    clicked: false
   };
   componentDidUpdate(prevProps, prevState, snapshot) {
     if (this.props.status !== prevProps.status) {
@@ -76,17 +75,19 @@ class PlayerSettings extends React.Component {
   };
   createUI = () => {
     const { count, users } = this.state;
+    
     return users.map((item, i) => (
       <Wrapper key={i}>
         <InputWrapper>
           <Input
-            placeholder="Team name"
+            placeholder="Názov tímu"
             name="name"
             value={item.name}
             onChange={this.handleChange.bind(this, i)}
             minLength={4}
             maxLength={12}
             pattern="^(?!\s*$).+"
+            textColor={item.color}
           />
         </InputWrapper>
         {count <= 1 ? (
@@ -113,7 +114,6 @@ class PlayerSettings extends React.Component {
               value={value}
               hexColor={hexColor}
               onClick={() => this.setColor(i, hexColor)}
-              clicked={this.state.clicked}
             />
           ))}
         </ColorWrapper>
@@ -194,7 +194,7 @@ class PlayerSettings extends React.Component {
     );
   }
 }
-PlayerSettings.propTypes = {
+SelectColorAndName.propTypes = {
   createGameAction: PropTypes.func.isRequired
 };
-export default withRouter(PlayerSettings);
+export default withRouter(SelectColorAndName);

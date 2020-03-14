@@ -1,7 +1,7 @@
 import React from "react";
 import { Wrapper, IconsWrapper, Image } from "./styles";
-import LinkMapping from "../../components/StyledLink/LinkMapping";
-import Logo from "../../components/Logo";
+import LinkMapping from "../../components/Links/LinkMapping";
+import Logo from "../Logo";
 import icons from "../../assets/icons.png";
 
 class Homepage extends React.Component {

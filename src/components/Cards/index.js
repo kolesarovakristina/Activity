@@ -1,5 +1,5 @@
 import React from "react";
-import Card from "../Card/card";
+import Card from "./card";
 import { Wrapper, CardWrapper } from "./styles";
 import one from "../../assets/one.png";
 import two from "../../assets/two.png";
@@ -13,7 +13,7 @@ const points = [
 
 class Cards extends React.Component {
   render() {
-    const { getCardAction,closeCardAction,startTimeAction, word, gameId } = this.props;
+    const { openCardAction,closeCardAction,startTimeAction, word, gameId } = this.props;
     return (
       <Wrapper>
         {points.map(({ point, src }) => (
@@ -22,7 +22,7 @@ class Cards extends React.Component {
               src={src}
               point={point}
               onOpen={() => {
-                getCardAction(point, gameId);
+                openCardAction(point, gameId);
               }}
               onClose={()=>{
                 closeCardAction()

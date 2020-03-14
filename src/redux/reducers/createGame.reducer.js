@@ -17,7 +17,7 @@ function createGameReducer(state = initialState, action = {}) {
       return {
         ...state,
         gameId: action.data.board.id,
-        players: action.data.board.players,
+        players: [...action.data.board.players],
         status: "success"
       };
     case CreateGameConst.CREATE_GAME_IN_PROGRESS:

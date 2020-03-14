@@ -1,5 +1,5 @@
 import React from "react";
-import { Wrapper } from "../../containers/Homepage/styles";
+import { Wrapper } from "../Homepage/styles";
 import { ContentWrapper, Title } from "./styles";
 import Logo from "../Logo";
 import PlayerSettingsContainer from "../../containers/PlayerSettingsContainer";
@@ -10,7 +10,7 @@ class SetupGame extends React.Component {
       <Wrapper>
         <Logo />
         <ContentWrapper>
-          <Title>Select Team name and Color</Title>
+          <Title>Zvoľte si názov a farbu tímu</Title>
           <PlayerSettingsContainer />
         </ContentWrapper>
       </Wrapper>

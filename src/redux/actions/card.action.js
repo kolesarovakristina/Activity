@@ -1,9 +1,9 @@
 import CardConst from "../consts/card.const";
 import axios from "axios";
 
-function getCardSuccess(data) {
+function openCard(data) {
   return {
-    type: CardConst.FETCH_CARD_WORD_SUCCESS,
+    type: CardConst.OPEN_CARD,
     data
   };
 }
@@ -12,11 +12,11 @@ function closeCard() {
     type: CardConst.CLOSE_CARD,
   };
 }
-function getCard(point, gameId) {
+function openCardAndFetchData(point, gameId) {
   return (dispatch, getState) => {
     axios(`/api/v1/activity/card/point/${point}/gameId/${gameId}`)
       .then(({ data }) => {
-        dispatch(getCardSuccess(data));
+        dispatch(openCard(data));
         console.log(point)
       })
       .catch(err => {
@@ -26,7 +26,7 @@ function getCard(point, gameId) {
 }
 
 const CardAction = {
-  getCard,
+  openCardAndFetchData,
   closeCard
 };
 

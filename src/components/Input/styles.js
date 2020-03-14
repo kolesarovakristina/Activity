@@ -9,13 +9,14 @@ export const StyledInput = styled.input`
   outline: none;
   display: block;
   text-indent: 10px;
-  color: rgb(255, 87, 26);
+  color: ${props => props.textColor};
   background: #f2ffcc;
   border-bottom: 1.5px solid rgb(255, 87, 26);
   border-top: none;
   border-right: none;
   border-left: none;
   text-decoration: none;
+  font-weight:bold;
   box-shadow: 1px 12px 10px -10px rgba(0, 0, 0, 0.3);
   &:focus {
     border-bottom: 2.5px solid rgb(255, 87, 26);
@@ -48,8 +49,8 @@ export const ButtonWrapper = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
-  padding-top: 40px;
-  padding-bottom: 30px;
+  padding-top: 10px;
+  padding-bottom: 20px;
 `;
 export const Button = styled.button`
   background: rgb(255, 87, 26);

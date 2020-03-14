@@ -1,6 +1,7 @@
 import PlayerMovementConst from "../consts/playerMovement.const";
 
 const initialState = {
+  COLUMNSCOUNT:4,
   playerMovement: {
     z: 0,
     x: 0,
@@ -11,26 +12,35 @@ const initialState = {
 function playerMovementReducer(state = initialState, action = {}) {
   switch (action.type) {
     case PlayerMovementConst.GO_RIGHT:
-      return {
-        ...state,
-        playerMovement: {
-          z: action.z,
-          actualPosition: action.actualPosition
-        }
-      };
+      if(Math.ceil(action.actualPosition / this.COLUMNSCOUNT) % 2 === 1){
+        return {
+          ...state,
+          playerMovement: {
+            z: action.z,
+            actualPosition: action.actualPosition
+          }
+        };
+      }
+      break;
     case PlayerMovementConst.GO_LEFT:
-      return {
-        ...state,
-        playerMovement: {
-          z: action.z,
-          actualPosition: action.actualPosition
-        }
-      };
+      if(Math.ceil(action.actualPosition / state.COLUMNSCOUNT) % 2 === 0){
+        return {
+          ...state,
+          playerMovement: {
+            z: action.z,
+            actualPosition: action.actualPosition
+          }
+        };
+      }
+      break;
     case PlayerMovementConst.GO_DOWN:
-      return {
-        ...state,
-        playerMovement: { x: action.x, actualPosition: action.actualPosition }
-      };
+      if(action.actualPosition%state.COLUMNSCOUNT===0){
+        return {
+          ...state,
+          playerMovement: { x: action.x, actualPosition: action.actualPosition }
+        };
+      }
+      break;
     default:
       return state;
   }

@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import CreateGameAction from "../../redux/actions/createGame.action";
-import PlayerSettings from "../../components/PlayerSettings";
+import PlayerSettings from "../../components/PlayerSettings/selectNameAndColor";
 
 const mapStateToProps = state => ({
   status: state.createGameReducer.status
