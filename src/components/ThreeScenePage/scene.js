@@ -6,16 +6,15 @@ import OrbitControls from "three-orbitcontrols";
 import { Player } from "./player";
 import TWEEN from "@tweenjs/tween.js";
 import Cards from "../../containers/CardsContainer";
-import Answers from "../../containers/AnswersContainer";
 var STLLoader = require("three-stl-loader")(THREE);
 
 let renderer;
 let camera;
 let scene;
-let playersPiecesModel = [{
-  mesh: null,
-  tween: null
-}];
+// let playersPiecesModel = [{
+//   mesh: null,
+//   tween: null
+// }];
 class Scene extends Component {
   componentDidMount() {
     this.setupScene();
@@ -55,10 +54,6 @@ class Scene extends Component {
       });
     });
     this.props.players.forEach((player, i) => {
-      // scene.add(player.model);
-      // this.players[i].position.x = player.x;
-
-      
       const pieceLoader = new STLLoader();
       pieceLoader.load("/assets/gameBoard3D/piece.stl", object => {
         var material = new THREE.MeshPhongMaterial({
@@ -66,12 +61,8 @@ class Scene extends Component {
         });
         var mesh = new THREE.Mesh(object, material);
         mesh.rotation.x = 4.78;
-        // playersPiecesModel.push(
-        //   {mesh}
-        // );
-        scene.add(mesh)
+        scene.add(mesh);
         const piece = new Player(0, i * 0.3, mesh);
-        // return {...player, piece};
       });
     });
 
@@ -139,7 +130,6 @@ class Scene extends Component {
           }}
         />
         <Cards />
-        <Answers/>
       </div>
     );
   }

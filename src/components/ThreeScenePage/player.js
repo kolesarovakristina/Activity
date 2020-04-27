@@ -28,7 +28,23 @@ export class Player {
     return this.model;
   }
   
- 
+  moveForward() {
+    // if (this.actualPosition === this.finalPosition) {
+    //   return;
+    // }
+    // if (this.actualPosition % this.COLUMNSCOUNT === 0) {
+    //   this.props.goDownAction(this.props.coordinate);
+    // }
+
+    // if (Math.ceil(this.actualPosition / this.COLUMNSCOUNT) % 2 === 0) {
+    //   this.props.goToLeftAction(this.props.coordinate);
+    
+    // }
+    // if (Math.ceil(this.actualPosition / this.COLUMNSCOUNT) % 2 === 1) {
+    //   this.props.goToRightaCTION(this.props.coordinate);
+      
+    // }
+  }
   // goToLeft(z) {
   //   this.z += z;
   //   this.tween

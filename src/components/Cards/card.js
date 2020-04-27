@@ -4,7 +4,7 @@ import logo from "../../assets/logo.png";
 
 class Card extends React.Component {
   render() {
-    const { src, word, onOpen,onClose,onStart } = this.props;
+    const { src, word, onOpen,onClose } = this.props;
     return (
       <label>
         <input type="checkbox" />
@@ -24,7 +24,6 @@ class Card extends React.Component {
           <div className="back">
             <div className="backContent">
               <div className="word" onClick={onClose}>{word}</div>
-              <button className="button" onClick={onStart}>start</button>
             </div>
           </div>
         </div>

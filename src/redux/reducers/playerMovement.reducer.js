@@ -1,7 +1,7 @@
-import PlayerMovementConst from "../consts/playerMovement.const";
+import AnswersConst from "../consts/answers.const";
 
 const initialState = {
-  COLUMNSCOUNT:4,
+  COLUMNSCOUNT: 4,
   playerMovement: {
     z: 0,
     x: 0,
@@ -11,33 +11,37 @@ const initialState = {
 
 function playerMovementReducer(state = initialState, action = {}) {
   switch (action.type) {
-    case PlayerMovementConst.GO_RIGHT:
-      if(Math.ceil(action.actualPosition / this.COLUMNSCOUNT) % 2 === 1){
+    case AnswersConst.CORRECT_ANSWER:
+      //GO_DOWN
+      if (state.actualPosition % state.COLUMNSCOUNT === 0) {
         return {
           ...state,
           playerMovement: {
-            z: action.z,
-            actualPosition: action.actualPosition
+            x: state.playerMovement.x,
+            actualPosition: state.actualPosition + 1
           }
         };
       }
-      break;
-    case PlayerMovementConst.GO_LEFT:
-      if(Math.ceil(action.actualPosition / state.COLUMNSCOUNT) % 2 === 0){
+      //GO_LEFT
+      if (Math.ceil(state.actualPosition / state.COLUMNSCOUNT) % 2 === 0) {
         return {
           ...state,
           playerMovement: {
-            z: action.z,
-            actualPosition: action.actualPosition
+            z: state.playerMovement.z + 1,
+            x: state.playerMovement.x,
+            actualPosition: state.actualPosition + 1
           }
         };
       }
-      break;
-    case PlayerMovementConst.GO_DOWN:
-      if(action.actualPosition%state.COLUMNSCOUNT===0){
+      //GO_RIGHT
+      if (Math.ceil(state.actualPosition / state.COLUMNSCOUNT) % 2 === 1) {
         return {
           ...state,
-          playerMovement: { x: action.x, actualPosition: action.actualPosition }
+          playerMovement: {
+            z: state.playerMovement.z - 1,
+            x: state.playerMovement.x,
+            actualPosition: state.actualPosition + 1
+          }
         };
       }
       break;
